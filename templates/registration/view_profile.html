@@ -1,0 +1,73 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block page_name %}Profile{% endblock %}
+
+{% block page_styles %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block header %}<em>{{ profile.user }}</em>'s Profile{% endblock %}
+
+
+{% block content %}
+
+<div class="card p-5 profile-card">
+  <div class="row profile-content">
+    {% if profile.image %}
+        <div class="col-6 text-center">
+        <img class="profile-pic" src="{{ profile.image.url }}">
+        </div>
+    {% endif %}
+    <div class="col-6">
+        <h1 class="card-title m-2">{{ profile.user }}</h1>
+        <h4 class="card-subtitle m-2">{{ profile.user.first_name }} {{ profile.user.last_name }}</h4>
+        <p class="card-text">Email: {{ profile.user.email }}<br>
+            Location: {{ profile.location }}<br>
+            Birthdate: {{ profile.birthdate }}<br>
+            Sex: {{ profile.sex }}
+        </p>
+        {% if profile.bio %}
+        <p class="card-text">About Me: {{ profile.bio }}</p>
+        {% endif %}
+        {% if own %}
+          <a class="btn btn-secondary" href="{% url 'accounts:edit-profile' %}">Edit Profile</a>
+          <a class="btn btn-info" href="{% url 'inbox' %}">Inbox</a>
+        {% else %}
+          <form method="POST">
+            <p>Message {{ profile.user }}</p>
+            {% csrf_token %}
+            {{ form.subject }}
+            {{ form.text }}
+            <button type="submit" class="btn btn-primary m-2">SEND</button>
+          </form>
+        {% endif %}
+    </div>
+  </div>
+    {% if runs %}<h2>Runs</h2>{% endif %}
+    {% for run in runs %}
+    <div class="row">
+        <p>Preferred Time of Day: {{ run.pref_time_of_day }}<br>
+            Average Pace: {{ run.avg_pace }}</p>
+    </div>
+    {% endfor %}
+    {% if rides %}<h2>Rides</h2>{% endif %}
+    {% for ride in rides %}
+    <div class="row">
+        <p>Preferred Time of Day: {{ ride.pref_time_of_day }}<br>
+          Average Speed <small>(flat)</small>: {{ ride.flat_avg }}km/h<br>
+          Average Speed <small>(hills)</small>: {{ ride.hill_avg }}km/h</p>
+    </div>
+    {% endfor %}
+    {% if workouts %}<h2>Workouts</h2>{% endif %}
+    {% for workout in workouts %}
+    <div class="row">
+        <p>Preferred Time of Day: {{ workout.pref_time_of_day }}<br>
+            Average Pace: {{ workout.workout_duration }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}{% endblock %}

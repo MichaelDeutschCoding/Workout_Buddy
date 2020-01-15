@@ -1,0 +1,27 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block page_name %}Direct Message{% endblock %}
+
+{% block page_styles %}
+<link rel="stylesheet" href="{% static 'css/messages.css' %}">
+{% endblock %}
+
+{% block header %}Send Direct Message{% endblock %}
+
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    Send To: {{ form.recipient }}<br>
+    {{ form.subject }}<br>
+    {{ form.text }}
+    <button type="submit" class="btn btn-primary m-3 p-2">Send
+        <img src="{% static 'images/send_white.png' %}" height="25px" width="25px">
+    </button>
+</form>
+
+{% endblock %}
+
+
+{% block scripts %}{% endblock %}

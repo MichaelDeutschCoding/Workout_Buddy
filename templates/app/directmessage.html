@@ -1,0 +1,26 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block page_name %}Message{% endblock %}
+
+{% block page_styles %}
+
+{% endblock %}
+
+{% block header %}Message from {{ message.sender }}{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-body">
+      <h2 class="card-title">Subject: {{ message.subject }}</h2>
+      <h4 class="card-subtitle text-muted">{{ message.time_sent }}</h4>
+      <h5 class="card=text">From: {{ message.sender }}</h5>
+      <h5 class="card=text">To: {{ message.recipient }}</h5>
+      <p class="card-text">{{ message.text }}</p>
+      <a class="btn btn-secondary" href="{% url 'messages' %}">Back to Messages</a>
+    <a class="btn btn-primary" href="{% url 'accounts:profile' message.sender.pk %}">Reply</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}{% endblock %}

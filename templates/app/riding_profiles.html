@@ -1,0 +1,74 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block page_name %}Riding Profiles{% endblock %}
+
+{% block page_styles %}
+<link rel="stylesheet" href="{% static 'css/riding.css' %}">
+{% endblock %}
+
+{% block header %}View RIDING Profiles in {{ location_title }}{% endblock %}
+
+
+{% block content %}
+<form method="GET">
+    <div class="row filter-row">
+      <div class="col">
+        {{ filter.form.username }}
+      </div>
+      <div class="col">
+        {{ filter.form.weekly_volume }}
+      </div>
+    </div>
+    <div class="row filter-row mt-2">
+      <div class="col">
+        {{ filter.form.location }}
+      </div>
+      <div class="col">
+        {{ filter.form.time_of_day }}
+      </div>
+    </div>
+    <div class="row filter-row">
+        <div class="col-6">Average speed on hilly ride</div>
+        <div class="col-6">Average speed on flat ride</div>
+    </div>
+    <div class="row filter-row">
+        {{ filter.form.hills }}{{ filter.form.flats }}
+    </div>
+    <button class="btn btn-primary m-2" type="submit">Filter</button>
+</form>
+<h4 class="mt-3">Click on any username to get in touch!</h4>
+<table class="table sports-table">
+  <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Name</th>
+      <th scope="col">Sex</th>
+      <th scope="col">Time of Day</th>
+      <th scope="col">Weekly Volume</th>
+      <th scope="col">Average Speed (flat)</th>
+      <th scope="col">Average Speed (hilly)</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for profile in filter.qs %}
+  <tr>
+      <td><a href="{% url 'accounts:profile' profile.user.id %}">{{ profile.user }}</a></td>
+      <td>{{ profile.user.user.first_name }} {{ profile.user.user.last_name }}</td>
+      <td>{{ profile.user.sex }}</td>
+      <td>{{ profile.pref_time_of_day }}</td>
+      <td>{{ profile.weekly_volume }}</td>
+      <td>{{ profile.flat_avg }}</td>
+      <td>{{ profile.hill_avg }}</td>
+
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+{% endblock %}

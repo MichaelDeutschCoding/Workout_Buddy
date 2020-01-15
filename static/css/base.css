@@ -1,0 +1,22 @@
+body {
+    min-height: calc(100vh - 80px);
+    background: url(/static/images/running_path_sydney.jpg);
+
+}
+
+.sports-table {
+    margin-top: 1.5rem;
+    background-color: rgba(200,200,200,0.7);
+}
+
+.filter-row {
+    text-align: center;
+}
+
+.table a {
+    color: black;
+}
+
+.table a:hover {
+    color: blue;
+}

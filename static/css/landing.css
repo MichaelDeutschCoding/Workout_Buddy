@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+.landing-main {
+    height: 100vh;
+    background: linear-gradient(rgba(50,50,50,0.4), rgba(50,50,50,0.4)), url(/static/images/landing_background2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.landing-text {
+    color: white;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 3rem;
+}
+
+.row {
+    margin-right:0;
+}
+
+.text-center {
+    background-color: rgba(100, 100, 100, 0.6);
+    padding: 20px
+}
+
+.land-button{
+    width: 100px;
+    border: none;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 500;
+    color: white;
+    background-color: #343a40;
+    border-radius: 25px;
+
+}
+
+land-button:hover {
+    border: solid white 1px;;
+}

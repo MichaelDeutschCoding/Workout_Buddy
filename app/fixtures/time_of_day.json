@@ -1,0 +1,65 @@
+[
+{
+  "model": "app.timeofday",
+  "pk": 1,
+  "fields": {
+    "name": "Early Morning (5-7 AM)"
+  }
+},
+{
+  "model": "app.timeofday",
+  "pk": 2,
+  "fields": {
+    "name": "Mid Morning (6-8 AM)"
+  }
+},
+{
+  "model": "app.timeofday",
+  "pk": 3,
+  "fields": {
+    "name": "Late Morning (after 8 AM)"
+  }
+},
+{
+  "model": "app.timeofday",
+  "pk": 4,
+  "fields": {
+    "name": "Noon (11 AM-1 PM)"
+  }
+},
+{
+  "model": "app.timeofday",
+  "pk": 5,
+  "fields": {
+    "name": "Early Afternoon (12-2 PM)"
+  }
+},
+{
+  "model": "app.timeofday",
+  "pk": 6,
+  "fields": {
+    "name": "Late Afternoon (2-4 PM)"
+  }
+},
+{
+  "model": "app.timeofday",
+  "pk": 7,
+  "fields": {
+    "name": "Early Evening (4-6 PM)"
+  }
+},
+{
+  "model": "app.timeofday",
+  "pk": 8,
+  "fields": {
+    "name": "Evening (6-8 PM)"
+  }
+},
+{
+  "model": "app.timeofday",
+  "pk": 9,
+  "fields": {
+    "name": "Late Evening (after 8 PM)"
+  }
+}
+]

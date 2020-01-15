@@ -1,0 +1,22 @@
+{% extends 'partials/base.html' %}
+
+{% block page_name %}Edit Profile{% endblock %}
+
+{% block page_styles %}
+
+{% endblock %}
+
+{% block header %}Edit profile for: <em>{{ request.user }}</em>{% endblock %}
+
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+
+{% endblock %}
+
+
+{% block scripts %}{% endblock %}

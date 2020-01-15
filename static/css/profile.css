@@ -1,0 +1,22 @@
+body {
+    background: url(/static/images/running_track.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.profile-card {
+    background: rgba(0,0,0,0.5);
+    color: white;
+}
+
+.profile-content {
+    min-height: 50vh;
+    align-items: center;
+}
+
+.profile-pic {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+}

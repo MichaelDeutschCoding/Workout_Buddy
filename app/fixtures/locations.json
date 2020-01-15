@@ -1,0 +1,79 @@
+[
+{
+  "model": "accounts.location",
+  "pk": 1,
+  "fields": {
+    "name": "Jerusalem"
+  }
+},
+{
+  "model": "accounts.location",
+  "pk": 2,
+  "fields": {
+    "name": "Beit Shemesh"
+  }
+},
+{
+  "model": "accounts.location",
+  "pk": 3,
+  "fields": {
+    "name": "Tel Aviv"
+  }
+},
+{
+  "model": "accounts.location",
+  "pk": 4,
+  "fields": {
+    "name": "Modi'in"
+  }
+},
+{
+  "model": "accounts.location",
+  "pk": 5,
+  "fields": {
+    "name": "Haifa"
+  }
+},
+{
+  "model": "accounts.location",
+  "pk": 6,
+  "fields": {
+    "name": "Be'er Sheva"
+  }
+},
+{
+  "model": "accounts.location",
+  "pk": 7,
+  "fields": {
+    "name": "Rehovot"
+  }
+},
+{
+  "model": "accounts.location",
+  "pk": 8,
+  "fields": {
+    "name": "Teveria"
+  }
+},
+{
+  "model": "accounts.location",
+  "pk": 9,
+  "fields": {
+    "name": "Ashdod"
+  }
+},
+{
+  "model": "accounts.location",
+  "pk": 10,
+  "fields": {
+    "name": "Netanya"
+  }
+},
+{
+  "model": "accounts.location",
+  "pk": 11,
+  "fields": {
+    "name": "Rishon L'Tzion"
+  }
+}
+]

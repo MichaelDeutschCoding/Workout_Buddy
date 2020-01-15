@@ -1,0 +1,8 @@
+body{
+    height: calc(100vh - 70px);
+    background: linear-gradient(rgba(200,200,200,0.6), rgba(200,200,200,0.2)), url(/static/images/workout.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}

@@ -1,0 +1,11 @@
+body {
+    background: url(/static/images/mountain_biking.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-form {
+    margin-top: 180px;
+    text-align: center;
+    font-size: 1.5rem;
+}

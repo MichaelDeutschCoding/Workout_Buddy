@@ -1,0 +1,67 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block page_name %}Running Profiles{% endblock %}
+
+{% block page_styles %}
+<link rel="stylesheet" href="{% static 'css/running.css' %}">
+{% endblock %}
+
+{% block header %}View RUNNING Profiles in {{ location_title }}{% endblock %}
+
+
+{% block content %}
+<form method="GET">
+    <div class="row filter-row">
+      <div class="col">
+        {{ filter.form.username }}
+      </div>
+      <div class="col">
+        {{ filter.form.weekly_volume }}
+      </div>
+    </div>
+    <div class="row filter-row mt-2">
+      <div class="col">
+        {{ filter.form.location }}
+      </div>
+      <div class="col">
+        {{ filter.form.time_of_day }}
+      </div>
+    </div>
+    <div class="row filter-row mt-2">
+        <div class="col-2 text-right">Average Pace:</div>
+        {{ filter.form.pace }}
+    </div>
+    <button class="btn btn-primary m-2" type="submit">Filter</button>
+</form>
+
+<table class="table sports-table">
+  <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Name</th>
+      <th scope="col">Sex</th>
+      <th scope="col">Time of Day</th>
+      <th scope="col">Weekly Volume</th>
+      <th scope="col">Average Pace</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for profile in filter.qs %}
+  <tr>
+      <td><a href="{% url 'accounts:profile' profile.user.id %}">{{ profile.user }}</a></td>
+      <td>{{ profile.user.user.first_name }} {{ profile.user.user.last_name }}</td>
+      <td>{{ profile.user.sex }}</td>
+      <td>{{ profile.pref_time_of_day }}</td>
+      <td>{{ profile.weekly_volume }}</td>
+      <td>{{ profile.avg_pace }}</td>
+
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
+
+
+{% block scripts %}{% endblock %}

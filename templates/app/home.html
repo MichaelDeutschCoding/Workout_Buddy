@@ -1,0 +1,37 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block page_name %}HOME{% endblock %}
+
+{% block page_styles %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block header %}Welcome to WORKOUT BUDDY{% endblock %}
+
+
+{% block content %}
+
+{% if new_msgs %}
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+    You have {{ new_msgs }} unread messages. <a href="{% url 'inbox' %}" class="alert-link">Follow me to read!</a>
+</div>
+{% endif %}
+
+<div class="row pt-4" style="justify-content: space-around;">
+    <div class="card sport-card" id="run"><a href="{% url 'running-profiles' %}" class="sport-link">
+        <p class="text">Find Running Partners</p>
+    </a></div>
+    <div class="card sport-card" id="ride"><a href="{% url 'riding-profiles' %}" class="sport-link">
+        <p class="text">Find Riding Partners</p>
+    </a></div>
+    <div class="card sport-card" id="workout"><a href="{% url 'workout-profiles' %}" class="sport-link">
+        <p class="text">Find Workout Partners</p>
+    </a></div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}{% endblock %}

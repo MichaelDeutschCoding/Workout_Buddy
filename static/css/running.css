@@ -1,0 +1,8 @@
+body{
+    height: calc(100vh - 60px);
+    background: url(/static/images/running.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}

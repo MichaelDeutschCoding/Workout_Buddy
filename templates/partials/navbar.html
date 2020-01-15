@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="{% url 'home' %}">Workout Buddy</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+        {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'accounts:my-profile' %}">My Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'messages' %}">My Messages</a>
+      </li>
+      <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">Add Sport Profile</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{% url 'add-sport-profile' 'running' %}">Running</a>
+          <a class="dropdown-item" href="{% url 'add-sport-profile' 'riding' %}">Riding</a>
+          <a class="dropdown-item" href="{% url 'add-sport-profile' 'workout' %}">Workout</a>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'riding-profiles' %}">Cyclists</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'running-profiles' %}">Runners</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'workout-profiles' %}">Gym Rats</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'all-routes' %}">Routes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin">Login as admin</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      </li>
+        {% else %}
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'accounts:register' %}">Sign Up</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'all-routes' %}">Routes</a>
+        </li>
+        {% endif %}
+    </ul>
+    {% if user.is_authenticated %}
+    <span class="navbar-text">
+      Logged in as: {{ user.username }}
+    </span>
+    {% endif %}
+  </div>
+</nav>

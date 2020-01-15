@@ -1,0 +1,46 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block page_name %}Workout Profiles{% endblock %}
+
+{% block page_styles %}
+<link rel="stylesheet" href="{% static 'css/workout.css' %}">
+{% endblock %}
+
+{% block header %}View WORKOUT Profiles in {{ location_title }}{% endblock %}
+
+
+{% block content %}
+
+<form method="GET">
+    {{ filter.form.as_p }}
+    <button class="btn btn-primary" type="submit">Filter</button>
+</form>
+
+<table class="table sports-table">
+  <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Name</th>
+      <th scope="col">Sex</th>
+      <th scope="col">Time of Day</th>
+      <th scope="col">Typical Workout Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for profile in filter.qs %}
+  <tr>
+      <td><a href="{% url 'accounts:profile' profile.user.id %}">{{ profile.user }}</a></td>
+      <td>{{ profile.user.user.first_name }} {{ profile.user.user.last_name }}</td>
+      <td>{{ profile.user.sex }}</td>
+      <td>{{ profile.pref_time_of_day }}</td>
+      <td>{{ profile.workout_duration }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
+
+
+{% block scripts %}{% endblock %}

@@ -1,0 +1,40 @@
+body{
+    height: calc(100vh - 80px);
+    background: url(/static/images/runner_mtn_background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.sport-card {
+    height: 250px;
+    width: 350px;
+    display: inline-block;
+    box-shadow: 3px 2px 5px 2px #00000087;
+}
+
+.sport-link, .sport-link:hover {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    position: absolute;
+    top: 30px;
+}
+
+.text {
+    padding: 30px;
+    text-align: center;
+    text-shadow: 9px -4px 8px black
+}
+
+#run{
+    background: url(/static/images/running_feet.png) center / cover no-repeat;
+}
+
+#ride {
+    background: url(/static/images/tri_bike.jpg) center / cover no-repeat;
+}
+#workout {
+    background: url(/static/images/gym_equipment.jpg) center / cover no-repeat;
+}

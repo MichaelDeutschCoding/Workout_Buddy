@@ -1,0 +1,23 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block page_name %}New Route{% endblock %}
+
+{% block page_styles %}
+
+{% endblock %}
+
+{% block header %}Add a New Route{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-secondary" type="submit">Submit</button>
+
+</form>
+{% endblock %}
+
+
+{% block scripts %}{% endblock %}
