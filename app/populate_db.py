@@ -15,6 +15,8 @@ pics = {
 
 
 def create_user():
+    """Creates one user using data provided by Faker.
+    Makes a User object, and a Profile."""
     fake = f.simple_profile()
     first_name, last_name = fake['name'].rsplit(' ', maxsplit=1)
     new_user = User(

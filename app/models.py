@@ -10,6 +10,9 @@ class TimeOfDay(models.Model):
 
 
 class MinSecDurationField(models.DurationField):
+    """Custom Field to display duration as only 'MM:SS',
+    excluding other data points like hours, days, microseconds."""
+
     def value_to_string(self, obj):
         val = self.value_from_object(obj)
         if val is None:
@@ -17,6 +20,7 @@ class MinSecDurationField(models.DurationField):
 
         days, hours, minutes, seconds, microseconds = _get_duration_components(duration)
         return '{:02d}:{:02d}'.format(minutes, seconds)
+
 
 class RidingProfile(models.Model):
     user = models.ForeignKey('accounts.Profile', on_delete=models.CASCADE)
@@ -27,6 +31,7 @@ class RidingProfile(models.Model):
 
     class Meta:
         ordering = ['pref_time_of_day']
+
 
 class RunningProfile(models.Model):
     user = models.ForeignKey('accounts.Profile', on_delete=models.CASCADE)

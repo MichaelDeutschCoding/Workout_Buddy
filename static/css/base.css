@@ -1,7 +1,10 @@
 body {
     min-height: calc(100vh - 80px);
     background: url(/static/images/running_path_sydney.jpg);
+}
 
+.page-head {
+    font-family: 'Varela Round', sans-serif;
 }
 
 .sports-table {

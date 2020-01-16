@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+
 class Location(models.Model):
     name = models.CharField(max_length=31)
 
@@ -17,6 +18,10 @@ GENDER_CHOICES = [
 ]
 
 class Profile(models.Model):
+    """A usable model with a one-to-one relationship to a User object.
+    This object will contain all the functionality of the app and is the
+     interface for all other sports/messaging models."""
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, null=True)
     image = models.ImageField(upload_to='user_pics', blank=True)

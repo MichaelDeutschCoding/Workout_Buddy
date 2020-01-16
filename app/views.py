@@ -54,6 +54,7 @@ def add_sport_profile(request, sport_type):
         'form': form
     })
 
+
 @method_decorator(login_required, name='dispatch')
 class BaseFilterView(FilterView):
     def get_context_data(self, *args, **kwargs):
@@ -86,6 +87,7 @@ class RidingFilterView(BaseFilterView):
 class RunningFilterView(BaseFilterView):
     filterset_class = RunningFilter
     template_name = 'app/running_profiles.html'
+
 
 class WorkoutFilterView(BaseFilterView):
     filterset_class = WorkoutFilter
